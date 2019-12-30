@@ -1,0 +1,36 @@
+jaco:
+ joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+ 
+ joint_trajectory_action:
+  type : effort_controllers/JointTrajectoryController
+  joints :
+   - jaco_arm_0_joint
+   - jaco_arm_1_joint
+   - jaco_arm_2_joint
+   - jaco_arm_3_joint
+   - jaco_arm_4_joint
+   - jaco_arm_5_joint
+  gains:
+   jaco_arm_0_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+   jaco_arm_1_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+   jaco_arm_2_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+   jaco_arm_3_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+   jaco_arm_4_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+   jaco_arm_5_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+  
+ finger_controller_0:
+  type: effort_controllers/JointPositionController
+  joint: jaco_finger_joint_0
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+ finger_controller_2:
+  type: effort_controllers/JointPositionController
+  joint: jaco_finger_joint_2
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+ finger_controller_4:
+  type: effort_controllers/JointPositionController
+  joint: jaco_finger_joint_4
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
