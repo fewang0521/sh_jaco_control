@@ -1,0 +1,5 @@
+<launch>
+  <node name="moveit_test" pkg="sh_jaco_arm_control" type="sh_jaco_arm_control_node" respawn="false" output="screen">
+    <remap from="joint_states" to="/jaco/joint_states"/>
+  </node>
+</launch>
