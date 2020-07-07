@@ -1,16 +1,16 @@
 <launch>
-
+<group ns="jaco">
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find sh_jaco_arm_control)/config/control_jaco_only.yaml" command="load"/>
+  <rosparam file="$(find sh_jaco_arm_control)/config/control.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/jaco" args="joint_trajectory_action joint_state_controller finger_controller_0 finger_controller_2 finger_controller_4"/>
+    output="screen" args="joint_trajectory_action joint_state_controller finger_controller_0 finger_controller_2 finger_controller_4"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
-    <remap from="/joint_states" to="/jaco/joint_states" />
+    <!--<remap from="/joint_states" to="/jaco/joint_states" />-->
   </node>
-
+</group>
 </launch>

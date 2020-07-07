@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="gazebo_gui" default="true"/>
+
+
+
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+  </include>
+
+  <!-- send robot urdf to param server -->
+  
+
+
+  <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
+<group ns="jaco">
+  <arg name="urdf_path_jaco" default="$(find jaco_on_table)/urdf/sh_jaco_arm_with_depth_camera.urdf.xacro"/>
+  <param name="robot_description" textfile="$(arg urdf_path_jaco)" />
+  <node name="spawn_gazebo_model1" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model jaco_arm -x 0 -y 0 -z 0"
+    respawn="false" output="screen" />
+</group>
+<group ns="prusa">
+  <arg name="urdf_path_prusa" default="$(find sh_jaco_arm_control)/urdf/prusaprinter/prusa_main_gazebo.urdf"/>
+  <param name="robot_description" textfile="$(arg urdf_path_prusa)" />
+  <node name="spawn_gazebo_model2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model prusa -x 0.2 -y 0.2 -z 2.5"
+    respawn="false" output="screen" />
+</group>
+  <!--<include file="$(find rrbot_control_study)/launch/ros_controllers.launch"/>-->
+
+</launch>
