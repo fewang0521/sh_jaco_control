@@ -14,4 +14,5 @@ user --->interface_topic ---> [target_node] ----> each controllers topic
 2. End effector Move (Moveit API 사용)
 moveit cpp interface를 이용하여, end effect의 coordinate와 orientation 정보를 입력하면 moveit에서 planning하고 execution하는 cpp를 구현
 
-
+Defendency:
+https://github.com/JenniferBuehler/jaco-arm-pkgs/wiki/Installation 에서 jaco-arm-pkgs install 필요 
