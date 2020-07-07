@@ -19,5 +19,9 @@ https://github.com/JenniferBuehler/jaco-arm-pkgs/wiki/Installation 에서 jaco-a
 
 
 실행:
-1. roslaunch jaco_on_table sh_jaco_arm.launch
-2. 
+1. roslaunch jaco_on_table sh_jaco_arm.launch  #gazebo robot
+2. roslaunch sh_jaco_arm_control controller_grip.launch #ROS controller
+3. roslaunch jaco_on_table_moveit jaco_on_table_moveit.launch # moveit planning
+4. roslaunch jaco_on_table_moveit jaco_on_table_rviz.launch # visualization of robot
+5. rosrun sh_jaco_arm_control controller_command_interface.py # jaco_arm finger controller interface
+6. roslaunch sh_jaco_arm_control moveit.launch
