@@ -24,4 +24,4 @@ https://github.com/JenniferBuehler/jaco-arm-pkgs/wiki/Installation 에서 jaco-a
 3. roslaunch jaco_on_table_moveit jaco_on_table_moveit.launch # moveit planning
 4. roslaunch jaco_on_table_moveit jaco_on_table_rviz.launch # visualization of robot
 5. rosrun sh_jaco_arm_control controller_command_interface.py # jaco_arm finger controller interface
-6. roslaunch sh_jaco_arm_control moveit.launch
+6. roslaunch sh_jaco_arm_control moveit.launch # implementation by using Moveit API C++
