@@ -16,3 +16,8 @@ moveit cpp interface를 이용하여, end effect의 coordinate와 orientation �
 
 Defendency:
 https://github.com/JenniferBuehler/jaco-arm-pkgs/wiki/Installation 에서 jaco-arm-pkgs install 필요 
+
+
+실행:
+1. roslaunch jaco_on_table sh_jaco_arm.launch
+2. 
