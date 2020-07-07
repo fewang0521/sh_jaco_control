@@ -1,0 +1,16 @@
+<launch>
+  <!-- include empty world -->
+
+  <arg name="ns" default="/prusa" />
+
+  <!-- spawn general model for the youbot -->
+  <arg name="urdf_path" default="$(find sh_jaco_arm_control)/urdf/prusaprinter/prusa_main_gazebo.urdf"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg urdf_path)'" />
+
+  <!-- spawn robot-->
+  <group ns="$(arg ns)">
+    <include file="$(find sh_jaco_arm_control)/launch/prusa_gazebo.launch">
+    </include>
+  </group>
+
+</launch>
